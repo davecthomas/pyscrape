@@ -27,15 +27,16 @@ url_plates = "https://www.roguefitness.com/weightlifting-bars-plates/bumpers?bum
 
 req_barbells = Request(url_barbells,headers={'User-Agent': 'Mozilla/5.0'})
 req_plates = Request(url_plates,headers={'User-Agent': 'Mozilla/5.0'})
-sleep_minutes = 40
+sleep_minutes = 60
 sleep_seconds_twixt = 20
+random_timeout_tweak = 20
 
 import time
 starttime=time.time()
 print("\nLet's go shopping at Rogue Fitness!\n\n")
 while True:
-    sleep_minutes_rand = sleep_minutes + round(random.random()*10, 1)
-    sleep_seconds_twixt_rand = sleep_seconds_twixt + round(random.random()*10, 1)
+    sleep_minutes_rand = sleep_minutes + round(random.random()*random_timeout_tweak, 1)
+    sleep_seconds_twixt_rand = sleep_seconds_twixt + round(random.random()*random_timeout_tweak, 1)
     get_me_some_url_shit("barbells", url_barbells)
     print("\nHanging back for {} seconds\n".format(sleep_seconds_twixt_rand))
     time.sleep(sleep_seconds_twixt_rand)
